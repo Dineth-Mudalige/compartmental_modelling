@@ -1,0 +1,11 @@
+tspan = [0 5];
+I0 = 0.005;
+G0 = 0.8;
+Gn0 =0.156;
+[t,y] = ode23(@(t,y) [-2 -5 4;0.2 -0.8 -1;2 0 -3]*y+[sign(t) 0 0]', tspan, [G0 I0 Gn0]);
+figure;
+plot(t,y);
+xlabel('Time(Hours)');
+ylabel('Insulin(u/kg),Glucagon(g/kg) & Glucose(g/kg)');
+title('Extended Boile plasma-glucose model');
+legend('Glucose', 'Insulin','Glucagon');
